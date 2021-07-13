@@ -4,9 +4,9 @@ using namespace std;
 int Print(int a)
 {
     cout << a;
-    if (a == 0)
+    if (a == 1)
     {
-        return 0;
+        return 1;
     }
     int small = Print(a - 1);
 }
