@@ -2,6 +2,7 @@
 using namespace std;
 int factorial(int n)
 {
+    cout << n;
     int smalloutput = factorial(n - 1);
     return n * smalloutput;
 }
