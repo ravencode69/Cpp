@@ -13,14 +13,7 @@ int Firstindex(int arr[], int size, int key)
         return 0;
     }
     int small = Firstindex(arr + 1, size - 1, key);
-    if (small != -1)
-    {
-        return small + 1;
-    }
-    else
-    {
-        return -1;
-    }
+    return (small != -1) ? small + 1 : -1;
 }
 
 int main()

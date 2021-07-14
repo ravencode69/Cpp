@@ -8,21 +8,14 @@ int Lindex(int arr[], int size, int x)
         return -1;
     }
     int small = Lindex(arr + 1, size - 1, x);
-    if (small != -1)
-    {
-        small = small + 1;
-    }
-    else
-    {
-        return (arr[0] = x) ? 0 : -1;
-    }
-    return small;
+    return (small != -1) ? small = small + 1 : (arr[0] = x) ? 0
+                                                            : -1;
 }
 
 int main()
 {
     int x, arr[20], size;
-    cout << "Size ??";
+    cout << "Size ?? ";
     cin >> size;
     for (int i = 0; i < size; i++)
     {
