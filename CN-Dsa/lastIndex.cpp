@@ -14,11 +14,9 @@ int Lindex(int arr[], int size, int x)
     }
     else
     {
-        if (arr[0] = x)
-            return 0;
-        else
-            return -1;
+        return (arr[0] = x) ? 0 : -1;
     }
+    return small;
 }
 
 int main()
