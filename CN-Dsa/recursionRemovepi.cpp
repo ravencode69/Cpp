@@ -2,32 +2,37 @@
 #include <string.h>
 using namespace std;
 
-void replacePiHelper(char str[], int start)
+void replacePiHelper(char str[], int start, int size)
 {
     if (str[start] == '\0' || str[start + 1] == '\0')
     {
         return;
+
+        replacePiHelper(str, start + 1, size - 1);
     }
-    replacePiHelper(str, start + 1);
 
-    if (str[start] == 'p' && str[start + 1] == 'i')
+    else if (str[start] == 'p' && str[start + 1] == 'i')
     {
-        for (int i = strlen(str); i >= start + 2; i--)
+        for (int i = start + 2; i <= size; i++)
         {
-            str[i + 2] = str[i];
+            char temp = str[i + 1];
+            str[i + 1] = str[i];
+            str[i + 2] = temp;
         }
-
+        size = size + 1;
+        str[size] = '\0';
         str[start] = '3';
         str[start + 1] = '.';
         str[start + 2] = '1';
         str[start + 3] = '4';
+        replacePiHelper(str, start + 4, size);
     }
 }
 
 int main()
 {
-    char arr[30], out[30];
+    char arr[30];
     cin >> arr;
-    replacePiHelper(arr, 0);
-    cout << out;
+    replacePiHelper(arr, 0, strlen(arr));
+    cout << arr;
 }
