@@ -3,7 +3,7 @@ using namespace std;
 
 int All(int arr[], int size, int key, int out[])
 {
-    int ctr;
+
     if (size == 0)
         return 0;
 
