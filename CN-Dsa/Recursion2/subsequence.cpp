@@ -6,7 +6,7 @@ int subseq(string input, string output[])
 {
     if (input.empty())
     {
-        output[0] = " ";
+        output[0] = "";
         return 1;
     }
     string smaller = input.substr(1);
