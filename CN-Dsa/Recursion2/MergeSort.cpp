@@ -1,67 +1,66 @@
 #include <iostream>
 using namespace std;
-void merging(int input[], int low, int mid, int high)
+void merge(int input[], int si, int mid, int li)
 {
-
-    int b[200];
-    int l1 = low, l2 = mid + 1, i = 0;
-    while (l1 <= mid && l2 <= high)
+    int p1 = si, p2 = mid + 1;
+    int k = 0;
+    int output[100];
+    while (p1 <= mid && p2 <= li)
     {
-        if (input[l1] <= input[l2])
-            b[i++] = input[l1++];
+        if (input[p1] < input[p2])
+            output[k++] = input[p1++];
         else
-            b[i++] = input[l2++];
-    } // end while loop here
-    while (l1 <= mid)
-    {
-        b[i++] = input[l1++];
+            output[k++] = input[p2++];
     }
 
-    while (l2 <= high)
+    while (p1 <= mid)
     {
-        b[i++] = input[l2++];
+        output[k++] = input[p1++];
     }
-
-    int j = 0;
-    for (i = low; i <= high; i++)
-        input[i] = b[j++];
-
-    //   }   dont end it here
+    while (p2 <= li)
+    {
+        output[k++] = input[p2++];
+    }
+    int op = 0;
+    for (int h = si; h <= li; h++)
+    {
+        input[h] = output[op++];
+    }
 }
-void mergeSort1(int input[], int first, int last)
-{
 
-    if (first < last)
-    {
-        int mid = (first + last) / 2;
-        mergeSort1(input, first, mid);
-        mergeSort1(input, mid + 1, last);
-        merging(input, first, mid, last);
-    }
+void mergesort(int arr[], int si, int li)
+{
+    if (si >= li)
+        return;
     else
     {
-        return;
+        int mid = (si + li) / 2;
+        mergesort(arr, si, mid);
+        mergesort(arr, mid + 1, li);
+        merge(arr, si, mid, li);
     }
 }
-void mergeSort(int input[], int length)
+void mergesort(int arr[], int length)
 {
     if (length <= 0)
-    {
         return;
-    }
-    mergeSort1(input, 0, length - 1);
+    int li = length - 1;
+    mergesort(arr, 0, li);
 }
 
 int main()
 {
     int length;
     cin >> length;
-    int *input = new int[length];
-    for (int i = 0; i < length; i++)
-        cin >> input[i];
-    mergeSort(input, length);
+    int *arr = new int[length];
     for (int i = 0; i < length; i++)
     {
-        cout << input[i] << " ";
+        cin >> arr[i];
+    }
+
+    mergesort(arr, length);
+    for (int i = 0; i < length; i++)
+    {
+        cout << arr[i] << "  ";
     }
 }
