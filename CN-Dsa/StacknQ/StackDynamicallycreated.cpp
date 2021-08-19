@@ -28,8 +28,9 @@ public:
             }
             delete[] array;
             array = narray;
+            ci *= 2;
         }
-        ci *= 2;
+
         array[ci] = data;
         ci++;
     }
