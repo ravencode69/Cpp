@@ -71,5 +71,5 @@ int main()
     s1.push(1);
     s1.push(6);
     cout << s1.top();
-    // cout << s1.pop();
+    cout << s1.pop();
 }
