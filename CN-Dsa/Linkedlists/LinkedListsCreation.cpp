@@ -1,6 +1,6 @@
 #include <iostream>
 using namespace std;
-
+/*----------------------------------method-1--------------------------------------------------*/
 class Node
 {
 public:
@@ -17,10 +17,12 @@ Node *create()
 {
     int data;
     cin >> data;
-    Node *head = NULL;
+
+    Node *head = NULL; //**
+
     while (data != -1)
     {
-        Node *newnode = new Node(data);
+        Node *newnode = new Node(data); //**
         if (head == NULL)
         {
             head = newnode;
@@ -28,8 +30,8 @@ Node *create()
         else
         {
             Node *temp = head;
-            while (temp->next != NULL)
-            {
+            while (temp->next != NULL) //Extra work has been done everytime we inset a new node node
+            {                          //i.e. we'll have to do n-1 comparision to insert n'th node
                 temp = temp->next;
             }
             temp->next = newnode;
@@ -38,6 +40,7 @@ Node *create()
     }
     return head;
 }
+
 void print(Node *head)
 {
     Node *p = head;
