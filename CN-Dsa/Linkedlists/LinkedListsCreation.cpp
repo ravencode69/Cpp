@@ -13,8 +13,7 @@ public:
     }
 };
 
-Node *
-create()
+Node *create()
 {
     int data;
     cin >> data;
