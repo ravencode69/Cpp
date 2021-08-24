@@ -50,6 +50,51 @@ void print(Node *head)
 
 Node *mergeTwoSortedLinkedLists(Node *head1, Node *head2)
 {
+    if (head1 && head2)
+    {
+        Node *Thead = NULL, *Ttail = NULL;
+        if (head1->data < head2->data)
+        {
+            Thead = Ttail = head1;
+            head1 = head1->next;
+            Ttail->next = NULL;
+        }
+        else
+        {
+            Thead = Ttail = head2;
+            head2 = head2->next;
+            Ttail->next = NULL;
+        }
+
+        while (head1 && head2)
+        {
+            if (head1->data < head2->data)
+            {
+                Ttail->next = head1;
+                Ttail = head1;
+                head1 = head1->next;
+                Ttail->next = NULL;
+            }
+
+            else
+            {
+                Ttail->next = head2;
+                Ttail = head2;
+                head2 = head2->next;
+                Ttail->next = NULL;
+            }
+        }
+        if (head1)
+        {
+            Ttail->next = head1;
+        }
+        else
+        {
+            Ttail->next = head2;
+        }
+
+        return Thead;
+    }
 }
 
 int main()
