@@ -35,7 +35,7 @@ Node *takeinput()
     }
     return head;
 }
-
+/*--------------------------- Hare nad tortoise approach-----------*/
 Node *midPoint(Node *head)
 {
     Node *slow = head;
