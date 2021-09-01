@@ -17,26 +17,24 @@ Node *appendLastNToFirst(Node *head, int n)
 {
     if (!head || n <= 0)
         return head;
-    Node *c = head;
-    Node *p = head, *q = head;
-    int ctr = 0;
-    while (c)
-    {
-        c = c->next; //length of ll
-        ctr++;
-    }
-    for (int i = 0; i < ctr - n; i++) //**
+    Node *p = head, *a = head, *b = head;
+    int l = 0;
+    for (; p;)
     {
         p = p->next;
+        l++;
     }
-    for (int i = 0; i < n; i++)
+    for (int i = 1; i < l - n; i++)
     {
-        q = q->next;
+        a = a->next;
     }
-    q->next = head;
-    head = p->next;
-    p->next = NULL;
-
+    for (int i = 1; i < l; i++)
+    {
+        b = b->next;
+    }
+    b->next = head;
+    head = a->next;
+    a->next = NULL;
     return head;
 }
 

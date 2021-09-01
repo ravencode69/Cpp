@@ -12,10 +12,10 @@ private:
 public:
     stack()
     {
+        capacity = 3; //took this value any number that i wanted.
         array = new int[capacity];
         ci = 0;
-        capacity = 3; //took this value any number that i wanted.
-    }
+        }
 
     void push(int data)     //the concept is really simple just when the ci becomes equal to capacity we'll
     {                       //make a new array of double its size and copy the elements from prev  arr then
@@ -26,11 +26,10 @@ public:
             {
                 narray[i] = array[i];
             }
-            delete[] array;
+            delete[] array; //this as well as lower part runs when ci==capacity
             array = narray;
-            ci *= 2;
+            capacity *= 2;
         }
-
         array[ci] = data;
         ci++;
     }
