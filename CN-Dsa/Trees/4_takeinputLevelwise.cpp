@@ -43,7 +43,6 @@ Treenode<int> *takeinput_levelw()
     }
     return root;
 }
-
 void printLevelWise(Treenode<int> *root)
 {
     queue<Treenode<int> *> remainode;

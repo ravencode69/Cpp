@@ -16,10 +16,10 @@ public:
 Treenode<int> *takeinput()
 {
     int rootData, n;
-    cout << "rootdata";
+    cout << "rootdata  ";
     cin >> rootData;
     Treenode<int> *root = new Treenode<int>(rootData);
-    cout << "no. of children";
+    cout << "no. of children  ";
     cin >> n;
     for (int i = 0; i < n; i++)
     {
