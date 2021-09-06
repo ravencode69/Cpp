@@ -64,10 +64,55 @@ TreeNode<int> *maxDataNode(TreeNode<int> *root)
     }
     return max;
 }
+
+int getHeight(TreeNode<int> *root)
+{
+    int ctr = 0;
+    for (int i = 0; i < root->children.size(); i++)
+    {
+        int smallctr = getHeight(root->children[i]);
+        if (ctr < smallctr)
+            ctr = smallctr;
+    }
+    return ctr + 1;
+}
+void printAtK(Treenode<int> *root, int K)
+{
+    if (!root)
+    {
+        return;
+    }
+    if (K == 0)
+    {
+        cout << root->data << endl;
+        return;
+    }
+    for (int i = 0; i < root->children.size(); i++)
+    {
+        printAtK(root->children[i], K - 1);
+    }
+}
+
+int getLeafNodeCount(TreeNode<int> *root)
+{
+    if (root->children.size() == 0)
+    {
+        return 1;
+    }
+    int ctr = 0;
+    for (int i = 0; i < root->children.size(); i++)
+    {
+        ctr = ctr + getLeafNodeCount(root->children[i]);
+    }
+    return ctr;
+}
+
 int main()
 {
     Treenode<int> *root = takeinput_levelw();
     //cout << endl << sumOfNodes(root) << endl;
     cout << maxDataNode(root);
+    //printAtK(root, 2);
+    cout << getLeafNodeCount(root);
     return 0;
 }
