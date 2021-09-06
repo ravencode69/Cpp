@@ -13,6 +13,13 @@ public:
     {
         this->data = data;
     }
+    ~Treenode()
+    {
+        for (int i = 0; i < children.size(); i++)
+        {
+            delete children[i];
+        }
+    }
 };
 Treenode<int> *takeinput_levelw()
 {
@@ -114,5 +121,6 @@ int main()
     cout << maxDataNode(root);
     //printAtK(root, 2);
     cout << getLeafNodeCount(root);
+    delete root;
     return 0;
 }
