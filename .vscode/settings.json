@@ -4,5 +4,6 @@
         "xstring": "cpp",
         "ostream": "cpp",
         "queue": "cpp"
-    }
+    },
+    "C_Cpp.errorSquiggles": "Enabled"
 }
