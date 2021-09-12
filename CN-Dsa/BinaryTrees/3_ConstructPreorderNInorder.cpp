@@ -89,6 +89,40 @@ BinaryTreeNode<int> *buildTree(int *preorder, int preLength, int *inorder, int i
 {
     return BinaryTreehelper(inorder, preorder, 0, inLength - 1, 0, preLength - 1);
 }
+
+/*-------Construction of tree---------------*/
+BinaryTreeNode<int> *PostInhelper(int *po, int *in, int poS, int poE, int inS, int inE)
+{
+    if (inS > inE)
+        return NULL;
+    int rd = po[poE];
+    int ri;
+    for (int i = inS; i <= inE; i++)
+    {
+        if (in[i] == rd)
+        {
+            ri = i;
+            break;
+        }
+    }
+    int linS = inS;
+    int linE = ri - 1;
+    int lpoS = poS;
+    int lpoE = linE - linS + lpoS;
+    int rinS = ri + 1;
+    int rinE = inE;
+    int rpoS = lpoE + 1;
+    int rpoE = rinE - rinS + rpoS;
+
+    BinaryTreeNode<int> *root = new BinaryTreeNode<int>(rd);
+    root->left = PostInhelper(po, in, lpoS, lpoE, linS, linE);
+    root->right = PostInhelper(po, in, rpoS, rpoE, rinS, rinE);
+    return root;
+}
+BinaryTreeNode<int> *buildTree2(int *postorder, int postLength, int *inorder, int inLength)
+{
+    return PostInhelper(postorder, inorder, 0, postLength - 1, 0, inLength - 1);
+}
 /*-------Construction of tree---------------*/
 
 void printLevelATNewLine(BinaryTreeNode<int> *root)
