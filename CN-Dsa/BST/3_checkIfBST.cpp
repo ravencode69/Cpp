@@ -118,10 +118,26 @@ bool isBSTBetter(BinaryTreeNode<int> *root)
     return ans;
 }
 
+/*--------------Approach 3 :- =====[  TOP TO BOTTOM ]==============[ T(n) = (n)]======================>*/
+bool isBST3(BinaryTreeNode<int> *root, int min = INT_MIN, int max = INT_MAX)
+{
+    if (root == NULL)
+        return true;
+    if (root->data < min || root->data > max)
+        return false;
+
+    bool isleft = isBST3(root->left, min, root->data - 1);
+    bool isright = isBST3(root->right, root->data, max);
+
+    return isleft && isright;
+}
 //sample tree-    9 3 10 2 5 -1 -1 -1 -1 -1 6 -1 -1
 int main()
 {
     BinaryTreeNode<int> *root = takeInput();
     cout << (isBST(root) ? "true" : "false");
     cout << (isBSTBetter(root) ? "true" : "false");
+    cout << (isBST3(root) ? "true" : "false");
+
+    return 0;
 }
