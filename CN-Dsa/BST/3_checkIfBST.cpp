@@ -117,6 +117,7 @@ bool isBSTBetter(BinaryTreeNode<int> *root)
     bool ans = Isbst2help(root).first;
     return ans;
 }
+
 //sample tree-    9 3 10 2 5 -1 -1 -1 -1 -1 6 -1 -1
 int main()
 {
