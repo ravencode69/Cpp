@@ -70,7 +70,7 @@ private:
         {
             return NULL;
         }
-    }
+        }
 
 public:
     void delData(int data)
