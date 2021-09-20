@@ -18,7 +18,10 @@ public:
 };
 
 using namespace std;
-#include "solution.h"
+
+int getLCA(BinaryTreeNode<int> *root, int a, int b)
+{
+}
 
 BinaryTreeNode<int> *takeInput()
 {
