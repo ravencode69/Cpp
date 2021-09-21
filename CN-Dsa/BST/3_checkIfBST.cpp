@@ -141,3 +141,46 @@ int main()
 
     return 0;
 }
+/*
+
+int heightofx(BinaryTreeNode<int> *root, int x)
+{
+   if(!root) return 0;
+    
+    if(root->data==x)
+    return 1;
+    
+    int h = heightofx(root->left,x);
+    int h2= heightofx(root->left,x);
+    
+    if(h)
+        return 1+h;
+    else if(h2)
+        return 1+h2;
+}
+
+bool isSibling(BinaryTreeNode<int> *root, int p, int q)
+{
+    if(!root) return false;
+    
+    if(root->left == p && root->right ==q || root->left == q && root->right ==p)
+        return true;
+    return false;
+    
+}
+
+bool isCousin(BinaryTreeNode<int> *root, int p, int q) {
+    // Write your code here
+
+    int p1 = heightofx(p);
+    int p2 =heightofx(q);
+    
+    if(p1 != p2)
+        return false;
+    
+    else
+           
+    
+}
+
+*/
