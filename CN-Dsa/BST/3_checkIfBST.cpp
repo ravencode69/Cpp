@@ -174,6 +174,8 @@ bool isCousin(BinaryTreeNode<int> *root, int p, int q) {
 
     int p1 = heightofx(p);
     int p2 =heightofx(q);
+
+    
     
     if(p1 != p2)
         return false;
