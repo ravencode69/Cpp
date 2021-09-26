@@ -35,7 +35,7 @@ public:
             {
                 int temp = pq[childindex];
                 pq[childindex] = pq[parentindex];
-                pq[parentindex] = pq[childindex];
+                pq[parentindex] = temp;
             }
             else
             {
@@ -47,15 +47,47 @@ public:
 
     int removeMin()
     {
+        if (isEmpty())
+        {
+            return 0; // indicating the pq is empty
+        }
         int ans = pq[0];
         pq[0] = pq[pq.size() - 1];
 
         pq.pop_back();
 
-        int parentindex = 0
+        //down heapify
+        int parentindex = 0;
+        int lci = 2 * parentindex + 1;
+        int rci = 2 * parentindex + 2;
 
-            while ()
+        while (lci < pq.size())
         {
+            int minindex = parentindex;
+
+            if (pq[minindex] > pq[lci])
+            {
+                minindex = lci;
+            }
+            if (rci < pq.size() && pq[minindex] > pq[rci])
+            {
+                minindex = rci;
+            }
+            if (minindex == parentindex)
+            {
+                break;
+            }
+
+            //swapping
+            int temp = pq[minindex];
+            pq[minindex] = pq[parentindex];
+            pq[parentindex] = temp;
+
+            parentindex = minindex;
+            lci = 2 * parentindex + 1;
+            rci = 2 * parentindex + 2;
         }
+
+        return ans;
     }
 };
