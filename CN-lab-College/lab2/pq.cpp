@@ -116,7 +116,6 @@ int main()
     do
     {
         menu();
-        ;
 
         cout << "Enter Your choice ... " << endl;
         cin >> choice;
