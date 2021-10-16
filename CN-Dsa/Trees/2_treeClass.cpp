@@ -7,7 +7,7 @@ class Treenode
 {
 public:
     T data;
-    vector<Treenode<T> *> children;
+    vector<Treenode<T> *> children; //dynamic allocation
     Treenode(T data)
     {
         this->data = data;
