@@ -4,7 +4,8 @@
         "xstring": "cpp",
         "ostream": "cpp",
         "queue": "cpp",
-        "utility": "cpp"
+        "utility": "cpp",
+        "chrono": "cpp"
     },
     "C_Cpp.errorSquiggles": "Enabled"
 }
