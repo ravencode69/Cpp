@@ -7,7 +7,7 @@ bool ispossible(int n, int row, int col)
 {
 
     // same column
-    for (int i = 0; i >= 0; i--)
+    for (int i = row - 1; i >= 0; i--)
     {
         if (board[i][col] == 1)
         {
@@ -71,6 +71,6 @@ void placeNqueens(int n)
 
 int main()
 {
-    placeNqueens(5);
+    placeNqueens(4);
     return 0;
 }
