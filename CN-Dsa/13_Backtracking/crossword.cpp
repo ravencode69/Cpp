@@ -7,7 +7,7 @@ void print(char **board)
     {
         for (int j = 0; j < 10; j++) // col
         {
-            cout << board[i][j] << " ";
+            cout << board[i][j];
         }
         cout << endl;
     }
@@ -18,13 +18,13 @@ bool isValidVertical(char **board, string word, int row, int col)
     if (word.empty())
         return true;
 
-    if (row > 10)
+    if (row >= 10)
         return false;
 
     if (board[row][col] == '-' || board[row][col] == word[0])
     {
 
-        isValidVertical(board, word.substr(1), row + 1, col);
+        return isValidVertical(board, word.substr(1), row + 1, col);
     }
     return false;
 }
@@ -47,7 +47,7 @@ void rVertical(char **board, bool *checker, int ws, int i, int j, int idx)
         return;
     if (checker[idx] == true)
     {
-        board[i][j] == '-';
+        board[i][j] = '-';
         checker[idx] = false;
     }
     rVertical(board, checker, ws, i + 1, j, idx + 1);
@@ -58,12 +58,12 @@ bool isValidH(char **board, string current, int row, int col)
     if (current.empty())
         return true;
 
-    if (col > 10)
+    if (col >= 10)
         return false;
 
     if (board[row][col] == '-' || board[row][col] == current[0])
     {
-        isValidH(board, current.substr(1), row, col + 1);
+        return isValidH(board, current.substr(1), row, col + 1);
     }
     return false;
 }
