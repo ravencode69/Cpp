@@ -49,3 +49,44 @@ int knapsack(int *weights, int *values, int n, int maxWeight)
     int ans = max(x, y);
     return ans;
 }
+
+/*[ M E M O I Z A T I O N]*/
+
+int knapsackRec(int *weights, int *values, int n, int maxWeight, int **arr)
+{
+    if (n == 0 || maxWeight == 0)
+    {
+        return 0;
+    }
+    if (arr[n][maxWeight] != -1)
+    {
+        return arr[n][maxWeight];
+    }
+    if (weights[0] > maxWeight)
+    {
+        arr[n][maxWeight] = knapsackRec(weights + 1, values + 1, n - 1, maxWeight, arr);
+    }
+    else
+    {
+        int res1 = values[0] + knapsackRec(weights + 1, values + 1, n - 1, maxWeight - weights[0], arr);
+        int res2 = knapsackRec(weights + 1, values + 1, n - 1, maxWeight, arr);
+        int res = max(res1, res2);
+        arr[n][maxWeight] = res;
+    }
+    return arr[n][maxWeight];
+}
+int knapsack(int *weight, int *value, int n, int maxWeight)
+{
+    int **arr = new int *[n + 1];
+    for (int i = 0; i <= n; i++)
+    {
+        arr[i] = new int[maxWeight + 1];
+        for (int j = 0; j <= maxWeight; j++)
+        {
+            arr[i][j] = -1;
+        }
+    }
+    return knapsackRec(weight, value, n, maxWeight, arr);
+}
+
+/*[  D   Y    N    A   M   I   C    P R O G R A M M I N G]*/
