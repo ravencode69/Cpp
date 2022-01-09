@@ -68,4 +68,17 @@ int countWaysToMakeChange(int denominations[], int numDenominations, int value)
 
     for (int j = 1; j < value; j++)
         arr[0][j] = 0;
+
+    for (int i = 1; i <= numDenominations; i++)
+    {
+        for (int j = 1; j <= value; j++)
+        {
+            if (denominations[i] > j)
+                arr[i][j] = arr[i - 1][j];
+            else
+                arr[i][j] = arr[i - 1][j] + arr[i - 1][j - denominations[i - 1]];
+        }
+    }
+
+    return arr[numDenominations][value];
 }
