@@ -90,3 +90,38 @@ int knapsack(int *weight, int *value, int n, int maxWeight)
 }
 
 /*[  D   Y    N    A   M   I   C    P R O G R A M M I N G]*/
+int knapsack(int *weight, int *value, int n, int maxWeight)
+{
+    int **arr = new int *[n + 1];
+    for (int i = 0; i < n + 1; i++)
+    {
+        arr[i] = new int[maxWeight + 1];
+    }
+
+    for (int i = 0; i < n + 1; i++)
+    {
+        arr[i][0] = 0;
+    }
+    for (int j = 0; j < maxWeight + 1; j++)
+    {
+        arr[0][j] = 0;
+    }
+
+    for (int i = 1; i < n + 1; i++)
+    {
+        for (int j = 1; j <= maxWeight; j++)
+        {
+            if (weight[i - 1] > j)
+            {
+                arr[i][j] = arr[i - 1][j];
+            }
+            else
+            {
+                int a = value[i - 1] + arr[i - 1][j - weight[i - 1]];
+                int b = arr[i - 1][j];
+                arr[i][j] = max(a, b);
+            }
+        }
+    }
+    return arr[n][maxWeight];
+}
