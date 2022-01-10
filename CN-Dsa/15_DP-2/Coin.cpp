@@ -1,8 +1,8 @@
 /*Ways To Make Coin Change
 Send Feedback
 For the given infinite supply of coins of each of denominations,
- D = {D0, D1, D2, D3, ...... Dn-1}. You need to figure out the total number of ways W,
- in which you can make the change for Value V using coins of denominations D.*/
+D = {D0, D1, D2, D3, ...... Dn-1}. You need to figure out the total number of ways W,
+in which you can make the change for Value V using coins of denominations D.*/
 
 int countWaysToMakeChange(int denominations[], int numDenominations, int value)
 {
@@ -59,26 +59,26 @@ int countWaysToMakeChange(int denominations[], int numDenominations, int value)
 }
 
 // D Y N A M I C P R O G R A M M I N G
-int countWaysToMakeChange(int denominations[], int numDenominations, int value)
+int change(int amount, vector<int> &coins)
 {
-    int **arr = new int *[numDenominations];
+    int arr[coins.size() + 1][amount + 1];
 
-    for (int i = 0; i < numDenominations; i++)
+    for (int i = 0; i <= coins.size(); i++)
         arr[i][0] = 1;
 
-    for (int j = 1; j < value; j++)
+    for (int j = 0; j <= amount; j++)
         arr[0][j] = 0;
 
-    for (int i = 1; i <= numDenominations; i++)
+    for (int i = 1; i <= coins.size(); i++)
     {
-        for (int j = 1; j <= value; j++)
+        for (int j = 1; j <= amount; j++)
         {
-            if (denominations[i] > j)
+            if (coins[i - 1] > j)
                 arr[i][j] = arr[i - 1][j];
             else
-                arr[i][j] = arr[i - 1][j] + arr[i - 1][j - denominations[i - 1]];
+                arr[i][j] = arr[i][j - coins[i - 1]] + arr[i - 1][j];
         }
     }
 
-    return arr[numDenominations][value];
+    return arr[coins.size()][amount];
 }
