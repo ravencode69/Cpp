@@ -67,3 +67,5 @@ int matrixChainMultiplication(int *arr, int n)
     }
     return matrixChainMultiplication(arr, 1, n, m);
 }
+
+// DP
