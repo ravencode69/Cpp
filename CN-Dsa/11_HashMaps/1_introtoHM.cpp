@@ -7,14 +7,15 @@ int main()
 {
     unordered_map<int, int> map; // its just a key value pair
 
-    //How to Insert ?
+    // How to Insert ?
     pair<int, int> p(2, 3);
     map.insert(p);
 
     /*--------------OR---------------*/
     map[5] = 6;
-    //How to find or acess
+    // How to find or acess
     cout << map[2];
+    cout << map.begin()->first;
     cout << map.at(2);
 
     /*check presense of an element*/

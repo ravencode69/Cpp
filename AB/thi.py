@@ -15,3 +15,7 @@ Fahrenheit_2 = (celsius_2 * 9/5) + 32
 # print the result  
 print ('The %.2f degree Celsius is equal to: %.2f Fahrenheit'  
       %(celsius_2, Fahrenheit_2))  
+
+      for _ in range(int(input())): 
+print("".join(["abcdefghijklmnopqrstuvwxyz"[i % 26] 
+for i in range(int(input()))]))
