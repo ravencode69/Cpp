@@ -8,7 +8,10 @@
         "utility": "cpp",
         "chrono": "cpp",
         "unordered_map": "cpp",
-        "vector": "cpp"
+        "vector": "cpp",
+        "deque": "cpp",
+        "format": "cpp",
+        "list": "cpp"
     },
     "C_Cpp.errorSquiggles": "Enabled"
 }
