@@ -11,7 +11,8 @@
         "vector": "cpp",
         "deque": "cpp",
         "format": "cpp",
-        "list": "cpp"
+        "list": "cpp",
+        "charconv": "cpp"
     },
     "C_Cpp.errorSquiggles": "Enabled"
 }
