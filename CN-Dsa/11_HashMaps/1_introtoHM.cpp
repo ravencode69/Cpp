@@ -27,7 +27,7 @@ int main()
     cout << map.size();
     /*Erase from map*/
     map.erase(2);
-    cout << map.size();
+    cout << map.count(2);
 
     return 0;
 }
