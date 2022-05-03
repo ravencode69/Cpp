@@ -54,3 +54,34 @@ int main()
 
     return 0;
 }
+
+int main()
+{
+    ll t;
+    cin >> t;
+    while (t--)
+    {
+        ll n;
+        cin >> n;
+        vector<ll> array(n);
+        ll total = 0;
+        for (ll i = 0; i < n; i++)
+        {
+            cin >> array[i];
+            total += array[i];
+        }
+        ll find = 1, ctr = 0;
+        while (total > 0)
+        {
+            total -= find;
+            ctr += 1;
+            find += 1;
+        }
+        if (total < 0)
+            cout << ctr - 1 << endl;
+        else
+            cout << ctr << endl;
+    }
+
+    return 0;
+}

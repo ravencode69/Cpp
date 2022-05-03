@@ -1,5 +1,6 @@
 {
     "files.associations": {
+        "*.ejs": "html",
         "*.rmd": "markdown",
         "iostream": "cpp",
         "xstring": "cpp",
@@ -13,7 +14,24 @@
         "format": "cpp",
         "list": "cpp",
         "charconv": "cpp",
-        "random": "cpp"
+        "random": "cpp",
+        "*.tcc": "cpp",
+        "bitset": "cpp",
+        "codecvt": "cpp",
+        "exception": "cpp",
+        "algorithm": "cpp",
+        "functional": "cpp",
+        "iterator": "cpp",
+        "memory": "cpp",
+        "future": "cpp",
+        "limits": "cpp",
+        "ratio": "cpp",
+        "shared_mutex": "cpp",
+        "streambuf": "cpp",
+        "regex": "cpp",
+        "tuple": "cpp",
+        "type_traits": "cpp",
+        "valarray": "cpp"
     },
     "C_Cpp.errorSquiggles": "Enabled"
 }
